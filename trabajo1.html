@@ -28,24 +28,18 @@
       <div class="invalid-feedback">
         Ingresa nombre!
       </div>
+
+ 
+
     </div>
     <div class="col-md-4">
       <label for="validationCustom02" class="form-label">Apellido</label>
-      <input type="text" class="form-control" id="validationCustom02" required >
+      <input type="text" class="form-control" id="apellido" required >
       <div class="invalid-feedback">
-        Ingresa Usuario!
+        Ingresa apellido!
       </div>
     </div>
-    <div class="col-md-4">
-      <label for="validationCustomUsername" class="form-label">Usuario</label>
-      <div class="input-group has-validation">
-        <span class="input-group-text" id="inputGroupPrepend">@</span>
-        <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
-        <div class="invalid-feedback">
-          Porfavor elegi un usuario.
-        </div>
-      </div>
-    </div>
+    
     <div class="col-md-6">
       <label for="validationCustom03" class="form-label">Ciudad</label>
       <input type="text" class="form-control" id="validationCustom03" required>
@@ -75,10 +69,64 @@
       </div>
     </div>
     <div class="col-12">
-      <button class="btn btn-primary" type="submit">Enviar</button>
+      <button class="btn btn-primary" type="submit" onclick="checkInputs(event)">Enviar</button>
     </div>
+    
   </form>
 
+    
+
 </body>
-<script src="script.js"></script>
+<script>
+  
+function checkInputs(event){
+  var nombre= document.getElementById('validationCustom01');
+  var apellido= document.getElementById('apellido');
+  var ciudad = document.getElementById('validationCustom03');
+  var provincia= document.getElementById('validationCustom04');
+  event.preventDefault();
+console.log(nombre.value);
+  if(nombre.value.length>2){
+    nombre.classList.remove("is-invalid");
+    nombre.classList.add("is-valid");
+  } 
+  else{
+    nombre.classList.add("is-invalid");
+
+  
+ 
+   
+  }
+  if(apellido.value.length>2){
+    apellido.classList.remove("is-invalid");
+    apellido.classList.add("is-valid");
+
+  }
+  else{
+    apellido.classList.remove("is-valid");
+    apellido.classList.add("is-invalid");
+  }
+  if(ciudad.value.length>2){
+
+    ciudad.classList.remove("is-invalid");
+    ciudad.classList.add("is-valid");
+
+  }
+  else{
+    ciudad.classList.add("is-invalid")
+  }
+  if(provincia.value.length>2){
+    provincia.classList.remove("is-invalid");
+    provincia.classList.add("is-valid");
+
+  }
+  else{
+    provincia.classList.add("is-invalid")
+  }
+}
+
+
+
+
+</script>
 </html>
